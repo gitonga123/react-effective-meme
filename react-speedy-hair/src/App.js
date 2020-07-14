@@ -3,22 +3,32 @@ import logo from './logo.svg';
 import './App.css';
 
 class Car extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = { 
+      brand: "Toyota",
+      model: "Allion",
+      color: "Red",
+      year: 2005
+     };
+  }
+  changeColor = () => {
+    this.setState({color: "Blue"});
+  }
   render() { 
     return ( 
       <div>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Color</th>
-          </tr>
-          <tr>
-          <td>{this.props.name}</td>
-          <td>{this.props.color}</td>
-          </tr>
-        </table>
+        <h1>
+          My {this.state.brand}
+        </h1>
+        <p>
+          It is a {this.state.color} {this.state.model} from {this.state.year}
+        </p>
+        <button type="button" onClick={this.changeColor}>
+          Change color
+        </button>
       </div>
-     );
+    );
   }
 }
  
