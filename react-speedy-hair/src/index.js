@@ -17,4 +17,53 @@ class Football extends React.Component {
     }
 }
 
-ReactDOM.render(<Football />, document.getElementById('root'))
+class MyForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            age: null,
+            errorMessage: '',
+            description: "The content of a textarea goes in the value attribute"
+        };
+    }
+
+    mySubmitHandler = (event) => {
+        event.preventDefault();
+        alert("You are submitting " + this.state.username);
+    }
+    myChangeHandler = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        let err = '';
+        if (nam === "age") {
+            if (!Number(val)) {
+                err = <strong>Your age must be a number</strong>;
+            }
+        }
+        this.setState({errorMessage: err});
+        this.setState({[nam]: val })
+    }
+    render() {
+        let header = '';
+        if (this.state.username) {
+        header = <h1>Hello {this.state.username} am {this.state.age}. {this.state.description}</h1>
+        } else {
+            header = '';
+        }
+        return (
+            <form onSubmit={this.mySubmitHandler}>
+                {header}
+                <p>Enter your name:</p>
+                <input type="text" name="username" onChange={this.myChangeHandler} />
+                <p>Enter your Age:</p>
+                <input type="text" name="age" onChange={this.myChangeHandler} />
+                <p>About yourself</p>
+                <textarea value = {this.state.description}/>
+                <input type="submit" />
+                {this.state.errorMessage}
+            </form>
+        )
+    }
+}
+ReactDOM.render(<MyForm />, document.getElementById('root'))
