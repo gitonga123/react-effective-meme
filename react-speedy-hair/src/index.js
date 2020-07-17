@@ -66,4 +66,20 @@ class MyForm extends React.Component {
         )
     }
 }
-ReactDOM.render(<MyForm />, document.getElementById('root'))
+class MyHeader extends React.Component {
+    render () {
+        const myStyle = {
+            color: "white",
+            backgroundColor: "DodgerBlue",
+            padding: "10px",
+            fontFamily: "Arial"
+        }
+        return (
+            <div>
+                <h1 style={myStyle}>Hello Style!</h1>
+                <p>Add a little style!</p>
+            </div>
+        );
+    }
+}
+ReactDOM.render(<MyHeader />, document.getElementById('root'))
