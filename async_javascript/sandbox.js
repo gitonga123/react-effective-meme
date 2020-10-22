@@ -1,11 +1,19 @@
-const request = new XMLHttpRequest();
+const getTodos = (callback) => {
+    const request = new XMLHttpRequest();
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && request.status === 200) {
+            callback(null, request.responseText);
+        } else if (request.readyState === 4 ) {
+            callback("Error: Data not found.", null);
+        }
+    });
+    request.open('GET', 'https://jsonplaceholder.typicode.com/todos');request.send();
+}
 
-
-request.addEventListener('readystatechange', () => {
-    if (request.readyState === 4 && request.status === 200) {
-        console.log(request.responseText)
-    } else if (request.readyState === 4 ) {
-        console.log("Error: Could not fetch the data");
+getTodos((err, data) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
     }
 });
-request.open('GET', 'https://jsonplaceholder.typicode.com/todos');request.send();
