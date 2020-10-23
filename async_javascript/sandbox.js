@@ -18,6 +18,16 @@ getTodos('https://jsonplaceholder.typicode.com/todos').then(data => {
   data.forEach(element => {
     console.log(element.title);
   });
+  return getTodos('https://jsonplaceholder.typicode.com/users');
+}).then(data => {
+  data.forEach(element => {
+    console.log(element.id);
+  });
+  return getTodos('https://jsonplaceholder.typicode.com/posts');
+}).then(data => {
+  data.forEach(element => {
+    console.log(element.id);
+  });
 }).catch(error => {
   console.log(error);
 });
