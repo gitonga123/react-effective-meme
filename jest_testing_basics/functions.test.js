@@ -22,3 +22,8 @@ test('should create user Daniel Mutwiri object', () => {
       lastName: 'Mutwiri'
   });
 })
+
+test('should be under 1600', () => {
+  expect(functions.add(800, 700)).toBeLessThan(1600);
+})
+
