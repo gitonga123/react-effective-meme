@@ -10,4 +10,8 @@ test('Adds 2 + 2 to NOT EQUAL 5', () => {
 
 test('should be falsy', () => {
     expect(functions.checkValue(null)).toBeFalsy();
+});
+
+test('should be truthy', () => {
+    expect(functions.checkValue(4)).toBeTruthy();
 })
