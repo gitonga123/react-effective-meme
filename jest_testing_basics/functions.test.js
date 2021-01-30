@@ -25,5 +25,10 @@ test('should create user Daniel Mutwiri object', () => {
 
 test('should be under 1600', () => {
   expect(functions.add(800, 700)).toBeLessThan(1600);
+});
+
+test('should be less than or equal to 1600', () => {
+    expect(functions.add(800, 800)).toBeLessThanOrEqual(1600);
 })
+
 
