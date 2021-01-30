@@ -3,7 +3,8 @@ const functions = {
     subtract: (num1, num2) => num1 - num2,
     divide: (num1, num2) => num1 / num2,
     multiply: (num1, num2) => num1 * num2,
-    isNul: () => null
+    isNul: () => null,
+    checkValue: x => x
 }
 
 module.exports = functions;
