@@ -37,5 +37,19 @@ test('should match the regex. There is no I in team', () => {
   expect('team').not.toMatch(/I/);
 });
 
+// Arrays
+test('should have admin in usernames', () => {
+  expect(functions.usernameList()).toContain('admin');
+});
+
+// working with async data
+test('should match user name Leanne Graham', async () => {    
+    functions.fetchUser().then(data => {
+        expect(data.name).toEqual('Leanne Graham');
+    });
+})
+
+
+
 
 
