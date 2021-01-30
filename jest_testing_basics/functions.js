@@ -4,7 +4,14 @@ const functions = {
     divide: (num1, num2) => num1 / num2,
     multiply: (num1, num2) => num1 * num2,
     isNul: () => null,
-    checkValue: x => x
+    checkValue: x => x,
+    createUser: () => {
+        const user =  {
+            firstName: 'Daniel'
+        };
+        user['lastName'] = 'Mutwiri';
+        return user;
+    }
 }
 
 module.exports = functions;
