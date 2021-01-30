@@ -29,6 +29,13 @@ test('should be under 1600', () => {
 
 test('should be less than or equal to 1600', () => {
     expect(functions.add(800, 800)).toBeLessThanOrEqual(1600);
-})
+});
+
+// Test for regex
+
+test('should match the regex. There is no I in team', () => {
+  expect('team').not.toMatch(/I/);
+});
+
 
 
