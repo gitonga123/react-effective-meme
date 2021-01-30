@@ -43,10 +43,9 @@ test('should have admin in usernames', () => {
 });
 
 // working with async data
-test('should match user name Leanne Graham', async () => {    
-    functions.fetchUser().then(data => {
-        expect(data.name).toEqual('Leanne Graham');
-    });
+test('should match user name Leanne Graham', async () => {   
+    const data = await functions.fetchUser();
+    expect(data.name).toEqual('Leanne Graham');
 })
 
 
